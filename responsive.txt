@@ -1,0 +1,50 @@
+		<style>
+div#bottombar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 50px;
+	background: #FF7E27;
+	padding: 5px;
+	font-size: 20px;
+}
+.expire-text {
+	font-weight: bold;
+	font: Arial;
+	color: #FFFFFF;
+	text-align: center;
+	}
+</style>
+
+<div id="bottombar">
+<center>
+<span class="expire-text" id="counter">OFFRE EXPIRE DANS 15:00</span> 
+<a href='LINK HERE' class='btn btn-warning'>Cliquez ICI</a>
+</center></div>
+
+<script>
+		function countdown(minutes) {
+    var seconds = 60;
+    var mins = minutes
+    function tick() {
+        var counter = document.getElementById("counter");
+        var current_minutes = mins-1
+        seconds--;
+        counter.innerHTML = "OFFRE EXPIRE DANS " + current_minutes.toString() + ":" + (seconds < 10 ? "0" : "")  + String(seconds);
+        if( seconds > 0 ) {
+            setTimeout(tick, 1000);
+        } else {
+            
+            if(mins > 1){
+                
+                countdown(mins-1);           
+                    
+            }
+        }
+    }
+    tick();
+}
+
+countdown(15);
+</script>
